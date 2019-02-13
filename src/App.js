@@ -1,28 +1,45 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import axios from 'axios';
+
+import {setAuthors} from './actions/authors';
+
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+    render() {
+        const {authors, isReady} = this.props;
+        return (
+            <div className='container'>
+                <ol>
+                    {
+                        !isReady
+                            ? 'Loading...'
+                            : authors.map((author, i) => (
+                                <li key={i}>Name is: {author.name}</li>
+                            ))}
+                </ol>
+            </div>
+        );
+    };
 
-export default App;
+    componentWillMount() {
+        const {setAuthors} = this.props;
+        axios.get('/data.json').then(({data}) => {
+            setAuthors(data);
+        })
+
+    };
+};
+
+
+const mapStateToProps = ({authors}) => ({
+    authors: authors.items,
+    isReady: authors.isReady
+});
+
+const mapDispatchToProps = dispatch => ({
+    setAuthors: authors => dispatch(setAuthors(authors))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
