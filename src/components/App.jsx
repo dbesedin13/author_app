@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import './App.css';
 import axios from 'axios';
 
-import SearchInput from './SearchInput';
-import Filter from './Filter/index';
+import SearchInput from '../containers/SearchInput';
+import Filter from '../containers/Filter';
 import AuthorList from './AuthorList';
 
 class App extends Component {
@@ -17,11 +17,11 @@ class App extends Component {
     };
 
     render() {
-        const {authors, isReady} = this.props;
+        const {authors, isReady, searchQuery} = this.props;
         const colors = ['color-67c9de', 'color-ba6fcb', 'color-e39473', 'color-5aa9e6', 'color-ac5061', 'color-9ec07f', 'color-b4507b', 'color-345feb'];
         return (
             <div className='container'>
-                <SearchInput />
+                <SearchInput {...searchQuery}/>
                 <Filter />
                 {!isReady
                     ? 'Loading...'

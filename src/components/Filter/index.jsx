@@ -1,17 +1,17 @@
 import React from 'react';
 import './Filter.css';
 
-const Filter = () => (
+const Filter = ({setFilter}) => (
     <div className='filter'>
         <div className='filter-container'>
-            Filter by name:
-            <button className='arrow_btn'>&uarr;</button>
-            <button className='arrow_btn'>&darr;</button>
+            Фильтр по имени:
+            <button onClick={e => setFilter(e.target.name)} className='arrow_btn' name='az'>&uarr;</button>
+            <button onClick={e => setFilter(e.target.name)} className='arrow_btn' name='za'>&darr;</button>
         </div>
         <div className='filter-container'>
-            Filter by pageview:
-            <button className='arrow_btn'>&uarr;</button>
-            <button className='arrow_btn'>&darr;</button>
+            Фильтр по просмотрам:
+            <button onClick={e => setFilter(e.target.name)} className='arrow_btn' name='toBig'>&uarr;</button>
+            <button onClick={e => setFilter(e.target.name)} className='arrow_btn' name='toSmall'>&darr;</button>
         </div>
 
 
