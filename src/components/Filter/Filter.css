@@ -1,0 +1,17 @@
+.filter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1d3648;
+    width: 100%;
+    border-bottom: 1px solid #eef0f3;
+    height: 50px;
+}
+.filter-container{
+    margin: 0 10px 0 70px;
+}
+.arrow_btn{
+    border-radius: 50%;
+    outline: none;
+    margin: 3px;
+}

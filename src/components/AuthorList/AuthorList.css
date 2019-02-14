@@ -1,0 +1,79 @@
+.author-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+    width: 100%;
+}
+.grayBckg{
+    background-color: #f4f6f9;
+    border-top: 1px solid #eef0f3;
+    border-bottom: 1px solid #eef0f3;
+
+}
+.count{
+    font-size: 12px;
+    margin-left: 10px;
+    color: #b1b2b4;
+}
+.logo-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #67c9de;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+.full-name{
+    width: 250px;
+    color: #1d3648;
+    font-size: 16px;
+    margin-left: 10px;
+    font-weight: bold;
+    line-height: 24px;
+}
+.count_pub{
+    color: #b1b2b4;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.medal{
+    width: 260px;
+}
+.pageviews{
+    width: 100px;
+    color: #1d3648;
+    font-size: 16px;
+    font-weight: bold;
+}
+.color-67c9de{
+    background-color: #67c9de;
+}
+.color-ba6fcb{
+    background-color: #ba6fcb;
+}
+.color-e39473{
+    background-color: #e39473;
+}
+.color-5aa9e6{
+    background-color: #5aa9e6;
+}
+.color-ac5061{
+    background-color: #ac5061;
+}
+.color-9ec07f{
+    background-color: #9ec07f;
+}
+.color-b4507b{
+    background-color: #b4507b;
+}
+.color-345feb{
+    background-color: #345feb;
+}
