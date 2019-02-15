@@ -7,9 +7,13 @@ import App from '../components/App';
 
 import orderBy from 'lodash/orderBy';
 
+//---Pagination--- takes authors array and start/end points
 const pagination = (authors, startPagination, endPagination) => {
     return authors.slice(startPagination, endPagination);
 }
+
+// ---Sorting--- sort authors array with lodash library`s method
+//               by name, by pageviews
 const sortBy = (authors, filterBy) => {
 
     switch (filterBy) {
@@ -26,12 +30,14 @@ const sortBy = (authors, filterBy) => {
     }
 };
 
+//---Filter--- filter authors array by input value
 const filterAuthors = (authors, searchQuery) =>
     authors.filter(
         i =>
             i.name.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0
     );
 
+//---Search--- search function.
 const searchAuthor = (authors, filterBy, searchQuery, startPagination, endPagination) => {
     return pagination(sortBy(filterAuthors(authors, searchQuery), filterBy), startPagination, endPagination);
 }
