@@ -7,8 +7,11 @@ import App from '../components/App';
 
 import orderBy from 'lodash/orderBy';
 
-
+const pagination = (authors, startPagination, endPagination) => {
+    return authors.slice(startPagination, endPagination);
+}
 const sortBy = (authors, filterBy) => {
+
     switch (filterBy) {
         case 'toBig':
             return orderBy(authors, 'pageviews', 'desc');
@@ -29,14 +32,15 @@ const filterAuthors = (authors, searchQuery) =>
             i.name.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0
     );
 
-const searchAuthor = (authors, filterBy, searchQuery) => {
-    return sortBy(filterAuthors(authors, searchQuery), filterBy)
+const searchAuthor = (authors, filterBy, searchQuery, startPagination, endPagination) => {
+    return pagination(sortBy(filterAuthors(authors, searchQuery), filterBy), startPagination, endPagination);
 }
 
-
 const mapStateToProps = ({authors, filter}) => ({
-    authors: authors.items && searchAuthor(authors.items, filter.filterBy, filter.searchQuery),
-    isReady: authors.isReady
+    authors: authors.items && searchAuthor(authors.items, filter.filterBy, filter.searchQuery, authors.startPagination, authors.endPagination, authors),
+    isReady: authors.isReady,
+    startPagination: authors.startPagination,
+    endPagination: authors.endPagination
 });
 
 const mapDispatchToProps = dispatch => ({

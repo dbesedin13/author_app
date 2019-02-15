@@ -5,7 +5,7 @@ import './AuthorList.css';
 class AuthorList extends Component {
     render() {
         const {name, count_pub, pageviews} = this.props;
-        const {count, classColor, grayBckg} = this.props.settings;
+        const {count, classColor, grayBckg, medal} = this.props.settings;
         const firstLetter = name[0];
         return (
             <div className={grayBckg + ' author-list'}>

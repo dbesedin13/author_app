@@ -13,8 +13,6 @@ const Filter = ({setFilter}) => (
             <button onClick={e => setFilter(e.target.name)} className='arrow_btn' name='toBig'>&uarr;</button>
             <button onClick={e => setFilter(e.target.name)} className='arrow_btn' name='toSmall'>&darr;</button>
         </div>
-
-
     </div>
 );
 
